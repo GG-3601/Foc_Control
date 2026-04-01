@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<html>
+<head>
+    <style>
+        /* 浅色背景：使用极浅的微蓝灰色，衬托鲜艳元素 */
+        body { background-color: #F8F9FA; margin: 0; overflow: hidden; font-family: 'Segoe UI', sans-serif; }
+        #tag {
+            position: absolute; top: 30px; left: 30px;
+            color: #333; font-size: 24px; font-weight: 900;
+            text-transform: uppercase; border-left: 8px solid #FF007A;
+            padding-left: 15px; z-index: 100; letter-spacing: 2px;
+        }
+        canvas { display: block; }
+    </style>
+</head>
+<body>
+    <div id="tag">System Dynamics: Optimized</div>
+    <canvas id="main_canvas"></canvas>
+
+    <script>
+        var canvas = document.getElementById('main_canvas');
+        var ctx = canvas.getContext('2d');
+        var items = [];
+        // 鲜艳的配色方案
+        var colors = ['#FF007A', '#00E5FF', '#FFBE0B', '#7209B7', '#4CC9F0', '#FB5607'];
+
+        function init() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            items = [];
+            // 元素数量适中，但体积变大
+            for (var i = 0; i < 25; i++) {
+                items.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height,
+                    vx: (Math.random() - 0.5) * 3,
+                    vy: (Math.random() - 0.5) * 3,
+                    // 增大半径：15 到 50 像素
+                    r: Math.random() * 35 + 15,
+                    color: colors[Math.floor(Math.random() * colors.length)]
+                });
+            }
+        }
+
+        function run() {
+            // 保持浅色背景
+            ctx.fillStyle = "#F8F9FA";
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            for (var i = 0; i < items.length; i++) {
+                var p = items[i];
+                p.x += p.vx; p.y += p.vy;
+
+                if (p.x < -p.r) p.x = canvas.width + p.r;
+                if (p.x > canvas.width + p.r) p.x = -p.r;
+                if (p.y < -p.r) p.y = canvas.height + p.r;
+                if (p.y > canvas.height + p.r) p.y = -p.r;
+
+                // 绘制大体积、鲜艳的圆形元素
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+                
+                // 使用半透明效果增加层次感
+                ctx.globalAlpha = 0.6;
+                ctx.fillStyle = p.color;
+                ctx.fill();
+                
+                // 添加一个明显的深色描边，让元素更“跳”
+                ctx.globalAlpha = 0.8;
+                ctx.strokeStyle = "#222";
+                ctx.lineWidth = 2;
+                ctx.stroke();
+
+                // 连线：即使是浅色背景，也使用彩色的连线
+                for (var j = i + 1; j < items.length; j++) {
+                    var p2 = items[j];
+                    var d = Math.sqrt(Math.pow(p.x - p2.x, 2) + Math.pow(p.y - p2.y, 2));
+                    if (d < 250) {
+                        ctx.strokeStyle = p.color;
+                        ctx.globalAlpha = 0.2;
+                        ctx.lineWidth = 3;
+                        ctx.beginPath();
+                        ctx.moveTo(p.x, p.y);
+                        ctx.lineTo(p2.x, p2.y);
+                        ctx.stroke();
+                    }
+                }
+            }
+            ctx.globalAlpha = 1.0;
+            setTimeout(run, 30);
+        }
+
+        window.onresize = init;
+        init();
+        run();
+    </script>
+</body>
+</html>

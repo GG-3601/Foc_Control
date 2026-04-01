@@ -101,21 +101,17 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-
-    
-//    HAL_Delay(500);
-//    HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_9);
 	static uint32_t Cnt = 0;
-    static uint32_t TestNum = 0;
+	static uint32_t TestNum = 0;
 	if(Cnt < 0xFFFF)
 	{
 		Cnt++;
 	}
 	else
 	{
-        Cnt = 0;
+		Cnt = 0;
 		TestNum++;
-        TestNum = TestNum > 20 ? 0 : TestNum; //防止溢出
+		TestNum = TestNum > 20 ? 0 : TestNum; //防止溢出
 	}
 
     FMSTR_Poll();

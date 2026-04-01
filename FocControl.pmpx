@@ -33,7 +33,7 @@
 			<member name="tmpdir_orig" type="string"/>
 			<member name="gg_used" type="sint32">0</member>
 			<member name="gg_dll_path" type="string"/>
-			<member name="html_control_page" type="string"/>
+			<member name="html_control_page" type="string">.\MDK-ARM\FocControl\z.html</member>
 			<member name="html_rendering_engine" type="sint32">2</member>
 			<member name="html_auth_xobjects" type="CStringListEx">ObjId0024</member>
 			<member name="demo_enable" type="sint32">0</member>
@@ -358,9 +358,9 @@
 			<member name="type_index" type="sint32">-1</member>
 		</object>
 		<object name="ObjId0023" type="CObList">
-			<member name="item0" type="CObject_ptr">ObjId0041</member>
+			<member name="item0" type="CObject_ptr">ObjId0071</member>
 		</object>
-		<object name="ObjId0041" type="CPrjDoc_MapFileInfo">
+		<object name="ObjId0071" type="CPrjDoc_MapFileInfo">
 			<member name="file_name" type="string">.\MDK-ARM\FocControl\FocControl.axf</member>
 			<member name="file_type" type="CObject_ptr">ObjId0008</member>
 		</object>
