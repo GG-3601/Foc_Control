@@ -314,7 +314,7 @@
           </ArmAdsMisc>
           <Cads>
             <interw>1</interw>
-            <Optim>2</Optim>
+            <Optim>1</Optim>
             <oTime>0</oTime>
             <SplitLS>0</SplitLS>
             <OneElfS>1</OneElfS>
@@ -340,7 +340,7 @@
               <MiscControls></MiscControls>
               <Define>USE_HAL_DRIVER,STM32F103xB</Define>
               <Undefine></Undefine>
-              <IncludePath>../Core/Inc;../Drivers/STM32F1xx_HAL_Driver/Inc;../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy;../Drivers/CMSIS/Device/ST/STM32F1xx/Include;../Drivers/CMSIS/Include;../User/Hw;..\User\Sw\fm;..\User\Sw\fm\fm_user</IncludePath>
+              <IncludePath>../Core/Inc;../Drivers/STM32F1xx_HAL_Driver/Inc;../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy;../Drivers/CMSIS/Device/ST/STM32F1xx/Include;../Drivers/CMSIS/Include;../User/Hw;..\User\Sw\fm;..\User\Sw\fm\fm_user;..\User\Sw\tms;..\User\rte</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -507,6 +507,16 @@
           </Files>
         </Group>
         <Group>
+          <GroupName>Sw</GroupName>
+          <Files>
+            <File>
+              <FileName>tms.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\User\Sw\tms\tms.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
           <GroupName>Sw/fm</GroupName>
           <Files>
             <File>
@@ -593,6 +603,16 @@
               <FileName>freemaster_uart_user.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\User\Sw\fm\fm_user\freemaster_uart_user.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>Sw/rte</GroupName>
+          <Files>
+            <File>
+              <FileName>rte.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\User\Rte\rte.c</FilePath>
             </File>
           </Files>
         </Group>

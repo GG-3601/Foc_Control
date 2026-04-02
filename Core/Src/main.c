@@ -24,6 +24,7 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "freemaster.h"
+#include "tms.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -90,8 +91,8 @@ int main(void)
   MX_USART1_UART_Init();
   /* USER CODE BEGIN 2 */
 
-  /*初始化*/
-  FMSTR_Init();
+    /*初始化*/
+    Tms_If_Init();
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -101,20 +102,9 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-	static uint32_t Cnt = 0;
-	static uint32_t TestNum = 0;
-	if(Cnt < 0xFFFF)
-	{
-		Cnt++;
-	}
-	else
-	{
-		Cnt = 0;
-		TestNum++;
-		TestNum = TestNum > 20 ? 0 : TestNum; //防止溢出
-	}
+    /*任务轮询*/
+    Tms_If_Poll();
 
-    FMSTR_Poll();
   }
   /* USER CODE END 3 */
 }

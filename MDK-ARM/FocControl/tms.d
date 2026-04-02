@@ -1,4 +1,4 @@
-foccontrol/main.o: ..\Core\Src\main.c ..\Core\Inc\main.h \
+foccontrol/tms.o: ..\User\Sw\tms\tms.c ..\User\Sw\tms\tms.h \
   ..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal.h \
   ..\Core\Inc\stm32f1xx_hal_conf.h \
   ..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_rcc.h \
@@ -26,10 +26,11 @@ foccontrol/main.o: ..\Core\Src\main.c ..\Core\Inc\main.h \
   ..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_flash_ex.h \
   ..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_pwr.h \
   ..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_uart.h \
-  ..\Core\Inc\usart.h ..\Core\Inc\gpio.h ..\User\Sw\fm\freemaster.h \
+  ..\User\rte\rte.h ..\User\Sw\fm\freemaster.h \
   ..\User\Sw\fm\freemaster_defcfg.h ..\User\Sw\fm\freemaster_cfg.h \
   ..\User\Sw\fm\freemaster_gen32le.h \
   D:\A_Software\Keil\Keil_ARM_Install\ARM\ARMCLANG\include\string.h \
   D:\A_Software\Keil\Keil_ARM_Install\ARM\ARMCLANG\include\stdlib.h \
   ..\User\Sw\fm\freemaster_tsa.h ..\User\Sw\fm\freemaster_rec.h \
-  ..\User\Sw\fm\freemaster_ures.h ..\User\Sw\tms\tms.h ..\User\rte\rte.h
+  ..\User\Sw\fm\freemaster_ures.h ..\Core\Inc\gpio.h ..\Core\Inc\main.h \
+  ..\Core\Inc\usart.h

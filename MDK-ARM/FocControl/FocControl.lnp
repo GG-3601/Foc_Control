@@ -19,6 +19,7 @@
 "foccontrol\stm32f1xx_hal_exti.o"
 "foccontrol\system_stm32f1xx.o"
 "foccontrol\test.o"
+"foccontrol\tms.o"
 "foccontrol\freemaster_appcmd.o"
 "foccontrol\freemaster_can.o"
 "foccontrol\freemaster_net.o"
@@ -33,6 +34,7 @@
 "foccontrol\freemaster_ures.o"
 "foccontrol\freemaster_utils.o"
 "foccontrol\freemaster_uart_user.o"
+"foccontrol\rte.o"
 --strict --scatter "FocControl\FocControl.sct"
 --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers
