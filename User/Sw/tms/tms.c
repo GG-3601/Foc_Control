@@ -70,6 +70,7 @@ void Tms_If_Poll(void)
 static void Tms_Task_Init(void)
 {
     FMSTR_Init();
+    
 }
 
 /*1ms任务*/
@@ -101,7 +102,7 @@ static void Tms_Task_50ms(void)
 /*100ms任务*/
 static void Tms_Task_100ms(void)
 {
-
+    As_If_Poll();
 }
 
 /*500ms任务*/
