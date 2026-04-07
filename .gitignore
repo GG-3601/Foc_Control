@@ -4,7 +4,7 @@
 
 
 # 忽略特定路径
-/FocControl/MDK-ARM/FocControl/*
+MDK-ARM/FocControl/
 
 # 忽略特定文件
 #myapp
