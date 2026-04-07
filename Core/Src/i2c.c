@@ -132,12 +132,12 @@ void I2c_If_Transmit(I2cChanl_t I2cChanl, uint8_t SlaveAddr, uint8_t *pData, uin
     HAL_I2C_Master_Transmit(phi2c, SlaveAddr, pData, Size, HAL_MAX_DELAY);
 }
 
-/*读取*/
-void I2c_If_Receive(I2cChanl_t I2cChanl, uint8_t SlaveAddr, uint8_t *pData, uint16_t Size)
+/*读取对应内存地址的数据*/
+void I2c_If_ReadMem(I2cRxTxCfg_t *pI2cRxTxCfg)
 {
     I2C_HandleTypeDef *phi2c;
     /*选择i2c通道*/
-    switch (I2cChanl)
+    switch (pI2cRxTxCfg->I2cChanl)
     {
         case I2c1:
             phi2c = &hi2c1;
@@ -148,7 +148,9 @@ void I2c_If_Receive(I2cChanl_t I2cChanl, uint8_t SlaveAddr, uint8_t *pData, uint
         default:
             return;
     }
-    HAL_I2C_Master_Receive(phi2c, SlaveAddr, pData, Size, HAL_MAX_DELAY);
+    HAL_I2C_Mem_Read(phi2c, pI2cRxTxCfg->DevAddr, pI2cRxTxCfg->MemAddr, pI2cRxTxCfg->MemAddrSize, \
+                    pI2cRxTxCfg->pData, pI2cRxTxCfg->Size, HAL_MAX_DELAY);
+
 }
 
 

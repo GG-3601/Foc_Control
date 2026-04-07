@@ -45,11 +45,21 @@ typedef enum
 {
     I2c1 = 0,
     I2c2 = 1,
-
 }I2cChanl_t;
 
+typedef struct 
+{
+    I2cChanl_t I2cChanl;
+    uint16_t DevAddr;
+    uint16_t MemAddr;
+    uint16_t MemAddrSize;    //I2C_MEMADD_SIZE_8BIT or I2C_MEMADD_SIZE_16BIT
+    uint8_t *pData;
+    uint16_t Size;
+}I2cRxTxCfg_t;
+
+
 void I2c_If_Transmit(I2cChanl_t I2cChanl, uint8_t SlaveAddr, uint8_t *pData, uint16_t Size);
-void I2c_If_Receive(I2cChanl_t I2cChanl, uint8_t SlaveAddr, uint8_t *pData, uint16_t Size);
+void I2c_If_ReadMem(I2cRxTxCfg_t *pI2cRxTxCfg);
 /* USER CODE END Prototypes */
 
 #ifdef __cplusplus

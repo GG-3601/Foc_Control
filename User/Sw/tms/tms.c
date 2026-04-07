@@ -69,8 +69,7 @@ void Tms_If_Poll(void)
 /*初始化任务*/
 static void Tms_Task_Init(void)
 {
-    FMSTR_Init();
-    
+    FMSTR_Init(); 
 }
 
 /*1ms任务*/
