@@ -1,19 +1,11 @@
-# 开发故障记录本 (Troubleshooting)
+# 开发故障记录本
 
 ---
 
-## [问题 ID] I2C 读数异常
+## I2C读取
 - **日期**: 2026-04-07
-- **现象**: `HAL_I2C_Master_Receive` 读取值为 0，但逻辑分析仪显示波形正常。
-
-### 1. 原因分析
-> 怀疑是 Stop 后紧跟 Start 导致从机状态重置，或 HAL 库状态未刷新。
-
-### 2. 核心代码
-```c
-// 错误写法
-HAL_I2C_Master_Transmit(...);
-HAL_I2C_Master_Receive(...);
-
-// 正确写法
-HAL_I2C_Mem_Read(...);
+- **现象**: 逻辑分析仪读取到数据线有数据返回，但软件层面读到的数据始终为0。
+- **原因**: 错误使用HAL函数，
+            使用HAL_I2C_Master_Transmit发送寄存器地址，再使用HAL_I2C_Master_Receive读取数据。
+            应该使用HAL_I2C_Mem_Read函数，该函数会自动发送寄存器地址，并读取数据，是上述的二合一功能。
+            且HAL_I2C_Mem_Read会生成Restart信号，而不是先stop后start信号。
