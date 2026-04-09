@@ -5,6 +5,7 @@
 
 # 忽略特定路径
 MDK-ARM/FocControl/
+Middlewares/Third_Party/ARM_CMSIS/Documentation/html
 
 # 忽略特定文件
 #myapp
