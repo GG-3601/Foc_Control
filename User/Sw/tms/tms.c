@@ -70,6 +70,8 @@ void Tms_If_Poll(void)
 static void Tms_Task_Init(void)
 {
     FMSTR_Init(); 
+
+    Tim_If_PwmOutputEn();//测试
 }
 
 /*1ms任务*/
@@ -90,11 +92,11 @@ static void Tms_Task_50ms(void)
     static uint8_t LedState = 0;
     if(LedState == GPIO_PIN_RESET)
     {
-        HAL_GPIO_WritePin(GPIOA, GPIO_PIN_9, GPIO_PIN_RESET);
+        HAL_GPIO_WritePin(GPIOB, GPIO_PIN_10, GPIO_PIN_RESET);
     }
     else
     {
-        HAL_GPIO_WritePin(GPIOA, GPIO_PIN_9, GPIO_PIN_SET);
+        HAL_GPIO_WritePin(GPIOB, GPIO_PIN_10, GPIO_PIN_SET);
     }
 }
 
