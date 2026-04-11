@@ -9,6 +9,7 @@
 #include "as.h"
 #include "gpio.h"
 #include "i2c.h"
+#include "mc.h"
 #include "tim.h"
 #include "tms.h"
 #include "udsp.h"

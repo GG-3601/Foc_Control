@@ -77,7 +77,7 @@ static void Tms_Task_Init(void)
 /*1ms任务*/
 static void Tms_Task_1ms(void) 
 {
-    
+    Mc_If_Poll(); //测试
 }
 
 /*10ms任务*/
@@ -89,15 +89,8 @@ static void Tms_Task_10ms(void)
 /*50ms任务*/
 static void Tms_Task_50ms(void)
 {
-    static uint8_t LedState = 0;
-    if(LedState == GPIO_PIN_RESET)
-    {
-        HAL_GPIO_WritePin(GPIOB, GPIO_PIN_10, GPIO_PIN_RESET);
-    }
-    else
-    {
-        HAL_GPIO_WritePin(GPIOB, GPIO_PIN_10, GPIO_PIN_SET);
-    }
+    
+
 }
 
 /*100ms任务*/
@@ -109,17 +102,14 @@ static void Tms_Task_100ms(void)
 /*500ms任务*/
 static void Tms_Task_500ms(void)
 {
-    q31_t inputA = 0x40000000; // Q31 格式的 0.5 (最大值 0x7FFFFFFF 代表 1.0)
-    q31_t inputB = 0x20000000; // Q31 格式的 0.25
-    q31_t output;
-
-    // 调用 CMSIS-DSP 库函数进行乘法：0.5 * 0.25 = 0.125
-    // 预期结果 output 应为 0x10000000
-    arm_mult_q31(&inputA, &inputB, &output, 1);
-
-    if (output == 0x10000000) {
-        // 库函数运行正常！
-        __NOP(); // 在这里打个断点
+    static uint8_t LedState = 1;
+    if(LedState == GPIO_PIN_RESET)
+    {
+        HAL_GPIO_WritePin(GPIOB, GPIO_PIN_10, GPIO_PIN_RESET);
+    }
+    else
+    {
+        HAL_GPIO_WritePin(GPIOB, GPIO_PIN_10, GPIO_PIN_SET);
     }
 }
 

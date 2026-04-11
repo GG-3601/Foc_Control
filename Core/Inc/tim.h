@@ -36,6 +36,24 @@ extern TIM_HandleTypeDef htim1;
 
 /* USER CODE BEGIN Private defines */
 
+typedef enum
+{
+    Tim1 = 0,
+    Tim2,
+    Tim3,
+    Tim4,
+}TimTimer_t;
+
+typedef enum
+{
+    TimChannel1  = 0x00000000U,
+    TimChannel2  = 0x00000004U,
+    TimChannel3  = 0x00000008U,
+    TimChannel4  = 0x0000000CU,
+    TimChanleAll = 0x0000003CU
+}TimChannel_t;
+
+
 /* USER CODE END Private defines */
 
 void MX_TIM1_Init(void);
@@ -44,6 +62,7 @@ void HAL_TIM_MspPostInit(TIM_HandleTypeDef *htim);
 
 /* USER CODE BEGIN Prototypes */
 void Tim_If_PwmOutputEn(void);
+void Tim_If_SetPwmDuty(TimTimer_t Timer, TimChannel_t Channel, uint16_t Duty);
 /* USER CODE END Prototypes */
 
 #ifdef __cplusplus

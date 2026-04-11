@@ -176,6 +176,30 @@ void Tim_If_PwmOutputEn(void)
     HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_3);
 }
 
+/*pwm占空比设置
+Duty: 占空比值，范围 0 - 65535*/
+void Tim_If_SetPwmDuty(TimTimer_t Timer, TimChannel_t Channel, uint16_t Duty)
+{
+    switch(Timer)
+    {
+        case Tim1:
+            __HAL_TIM_SET_COMPARE(&htim1, Channel, Duty);
+            break;
+        // case Tim2:
+        //     htim = &htim2;
+        //     break;
+        // case Tim3:
+        //     htim = &htim3;
+        //     break;
+        // case Tim4:
+        //     htim = &htim4;
+        //     break;
+        default:
+            break;
+    }
+
+    
+}
 
 /* USER CODE END 1 */
 
