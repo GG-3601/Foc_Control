@@ -148,7 +148,36 @@
           <Name>(105=-1,-1,-1,-1,0)</Name>
         </SetRegEntry>
       </TargetDriverDllRegistry>
-      <Breakpoint/>
+      <Breakpoint>
+        <Bp>
+          <Number>0</Number>
+          <Type>0</Type>
+          <LineNumber>90</LineNumber>
+          <EnabledFlag>1</EnabledFlag>
+          <Address>134239998</Address>
+          <ByteObject>0</ByteObject>
+          <HtxType>0</HtxType>
+          <ManyObjects>0</ManyObjects>
+          <SizeOfObject>0</SizeOfObject>
+          <BreakByAccess>0</BreakByAccess>
+          <BreakIfRCount>1</BreakIfRCount>
+          <Filename>..\User\Sw\tms\tms.c</Filename>
+          <ExecCommand></ExecCommand>
+          <Expression>\\FocControl\../User/Sw/tms/tms.c\90</Expression>
+        </Bp>
+      </Breakpoint>
+      <WatchWindow1>
+        <Ww>
+          <count>0</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>TimLoadRatio,0x0A</ItemText>
+        </Ww>
+        <Ww>
+          <count>1</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>TimElapsedTicks,0x0A</ItemText>
+        </Ww>
+      </WatchWindow1>
       <ScvdList>
         <Filename>..\..\..\..\Keil_Install\MDK_Install\Keil\STM32F1xx_DFP\2.4.1\SVD\STM32F103xx.svd</Filename>
         <Type></Type>
@@ -198,12 +227,8 @@
       <pMultCmdsp></pMultCmdsp>
       <SystemViewers>
         <Entry>
-          <Name>System Viewer\I2C1</Name>
-          <WinId>35905</WinId>
-        </Entry>
-        <Entry>
           <Name>System Viewer\TIM1</Name>
-          <WinId>35904</WinId>
+          <WinId>35905</WinId>
         </Entry>
       </SystemViewers>
       <DebugDescription>
@@ -282,7 +307,7 @@
       <GroupNumber>2</GroupNumber>
       <FileNumber>5</FileNumber>
       <FileType>1</FileType>
-      <tvExp>0</tvExp>
+      <tvExp>1</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
       <PathWithFileName>../Core/Src/tim.c</PathWithFileName>

@@ -9,3 +9,6 @@
             使用HAL_I2C_Master_Transmit发送寄存器地址，再使用HAL_I2C_Master_Receive读取数据。
             应该使用HAL_I2C_Mem_Read函数，该函数会自动发送寄存器地址，并读取数据，是上述的二合一功能。
             且HAL_I2C_Mem_Read会生成Restart信号，而不是先stop后start信号。
+
+
+使用阻塞方式的i2c通讯，一次轮询约耗时500us，导致负载率过高

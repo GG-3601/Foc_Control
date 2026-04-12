@@ -34,12 +34,15 @@ extern "C" {
 
 extern TIM_HandleTypeDef htim1;
 
+extern TIM_HandleTypeDef htim2;
+
 /* USER CODE BEGIN Private defines */
 
+/*user*************************************************************************************************************************************************/
 typedef enum
 {
-    Tim1 = 0,
-    Tim2,
+    Tim1 = 0,     //时钟源64MHz，pwm频率10kHz，通道1~3：pwm输出，
+    Tim2,         //时钟源64MHz，计数1次为1us，通道1：tms负载率计数，
     Tim3,
     Tim4,
 }TimTimer_t;
@@ -53,16 +56,24 @@ typedef enum
     TimChanleAll = 0x0000003CU
 }TimChannel_t;
 
+/*user*************************************************************************************************************************************************/
+
 
 /* USER CODE END Private defines */
 
 void MX_TIM1_Init(void);
+void MX_TIM2_Init(void);
 
 void HAL_TIM_MspPostInit(TIM_HandleTypeDef *htim);
 
 /* USER CODE BEGIN Prototypes */
-void Tim_If_PwmOutputEn(void);
+/*user*************************************************************************************************************************************************/
+
+void Tim_If_TimerEn(TimTimer_t Timer);
+void Tim_If_PwmOutputEn(TimTimer_t Timer, TimChannel_t Channel);
 void Tim_If_SetPwmDuty(TimTimer_t Timer, TimChannel_t Channel, uint16_t Duty);
+
+/*user*************************************************************************************************************************************************/
 /* USER CODE END Prototypes */
 
 #ifdef __cplusplus

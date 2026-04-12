@@ -19,6 +19,10 @@ typedef enum
 {
     RteTargetAngleIdx = 0,     //目标角度
     RteActualAngleIdx ,        //实际角度，q31_t格式，基准为AS_ANGLE_MAX(360°)
+
+    /*tms*/
+    Rte_Tms_LoadRatioIdx,   //tms负载率
+
     RteIdxMax,          //索引最大值
 }RteDataIdx_t;
 

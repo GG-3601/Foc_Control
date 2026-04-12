@@ -3,7 +3,7 @@
 
 #include "rte.h"
 
-
+void Mc_If_Init(void);
 void Mc_If_Poll(void);
 
 #endif /* __MC_H__ */

@@ -4,7 +4,10 @@
 
 void Mc_If_Init(void)
 {
-
+    Tim_If_TimerEn(Tim1);    //使能定时器1
+    Tim_If_PwmOutputEn(Tim1, TimChannel1);    //使能定时器1通道1
+    Tim_If_PwmOutputEn(Tim1, TimChannel2);    //使能定时器1通道2
+    Tim_If_PwmOutputEn(Tim1, TimChannel3);    //使能定时器1通道3
 }
 
 /*
